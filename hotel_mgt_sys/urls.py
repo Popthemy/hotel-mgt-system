@@ -26,6 +26,7 @@ admin.site.index_title = 'Hotel Control Panel'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('hotel.urls')),
+    path('reserve/',include('reservation.urls')),
 ]
 
 

@@ -18,6 +18,7 @@ class RoomAdmin(admin.ModelAdmin):
 
     fields = ('room_number', 'category', 'is_available', 'floor', 'bed_type',
               'price_per_night', 'image_url',  'description')
-    list_display = ('room_number','is_available', 'price_per_night','floor' )
+    list_editable = ('is_available',)
+    list_display = ('id','room_number', 'is_available', 'price_per_night', 'floor')
     list_filter = ('floor', 'is_available')
     search_fields = ('room_number', 'floor', 'category')

@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('',views.what_in_db,name='trial')
+    path('', views.categories, name='categories'),
+    path('categories/<int:category_id>/<str:category_name>/', views.category, name='category')
 ]
