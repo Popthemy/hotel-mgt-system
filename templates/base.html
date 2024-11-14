@@ -34,8 +34,18 @@
   <body>
     {% include "nav-bar.html" %}
     {% comment %} <main> {% endcomment %}
+    <div>
+      {% if messages %}
+      {% for message in  messages %}
+
+      <script> alert(' {{ message }} ') </script>
+
+      {% endfor %}
+      {% endif %}
+    </div>
 
       {% block content %}{% endblock  %}
+
 
     {% comment %} </main> {% endcomment %}
   {% include "footer.html" %}
