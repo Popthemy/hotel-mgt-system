@@ -45,9 +45,9 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-  'user',
-  'hotel',
-  'reservation',
+    'user',
+    'hotel',
+    'reservation',
 
 ]
 
@@ -65,13 +65,12 @@ MIDDLEWARE = [
 ]
 
 
-
 ROOT_URLCONF = 'hotel_mgt_sys.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/ 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,6 +88,16 @@ WSGI_APPLICATION = 'hotel_mgt_sys.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+
+# using sqlite if you don't have postgres installed uncomment this line
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # for postgres offline
 DATABASES = {
@@ -143,8 +152,9 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'static'] # for the static files we added
-STATIC_ROOT = BASE_DIR / 'general_static'  # will create this when we run collectstatics before deployment
+STATICFILES_DIRS = [BASE_DIR / 'static']  # for the static files we added
+# will create this when we run collectstatics before deployment
+STATIC_ROOT = BASE_DIR / 'general_static'
 
 
 # Default primary key field type

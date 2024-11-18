@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
+from django.core.exceptions import ValidationError
 from hotel.models import Room
-from .models import Booking
+from .models import Booking,Customer
 from .my_utils import check_clashes
 from datetime import date
 from .forms import BookingForm
@@ -33,15 +34,37 @@ def book_room(request, id):
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
-        print('This is the room number:',request.POST.get('room'))
+        print('This is the room number:', request.POST.get('room'))
 
         if form.is_valid():
-            # form.save()
+            valid_booking = form.save(commit=False)
 
-            message = 'Trying checking for availability!'
-            messages.info(request, message)
+            # # checking if the room is available
 
-            return redirect('room_detail', id, room.room_number)
+            # if not booked_room.is_available:
+            #     message = "The room is unavailable because it is under maintenance!"
+            #     messages.info(request, message)
+            #     return redirect(request.get_full_path())
+
+            valid_booking.room = room
+            valid_booking.customer = Customer.objects.get(user=request.user)
+
+            try:
+                ## throws an error when a clash exists
+                valid_booking.save()
+
+                message = "Booking successful!"
+                messages.info(request, message)
+
+                return redirect('room-detail', room.id, room.room_number)
+
+            except ValidationError as e:
+                message = str(e)
+                messages.info(request, message)
+                return redirect(request.get_full_path())
+
+        message = 'Detail Invalid!'
+        messages.error(request, message)
 
     context = {'room': room, 'form': form}
     return render(request, 'reservation/booking_form.html', context)

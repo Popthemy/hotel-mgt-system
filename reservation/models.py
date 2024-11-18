@@ -4,7 +4,6 @@ from django.core.validators import MinValueValidator
 from django.conf import settings
 from hotel.models import Room
 from .my_utils import check_clashes
-from datetime import date
 # Create your models here.
 
 
@@ -28,8 +27,8 @@ class Customer(models.Model):
 class Booking(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    check_in_date = models.DateField()
-    check_out_date = models.DateField()
+    check_in_date = models.DateField(help_text='when will you will arrive at our hotel..')
+    check_out_date = models.DateField(help_text='when you will vacate the room..')
     number_of_guests = models.PositiveIntegerField(
         validators=[MinValueValidator(1)])
     reserved_date = models.DateTimeField(auto_now_add=True)

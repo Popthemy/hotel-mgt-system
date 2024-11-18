@@ -1,5 +1,7 @@
+-- Uncomment the line that starts with INSERT to run populate your db 
+-- Don't uncomment the two and run them at the same time 
+-- Insert Categories    ORDER: Run this first
 
--- Insert Categories
 -- INSERT INTO hotel_category (name, description, max_occupants, image_url)
 -- VALUES
 -- ('Single Room', 'Perfect for solo travelers, with basic amenities and a comfortable bed.', 1, 'default-category.png'),
@@ -15,7 +17,7 @@
 
 
 
--- Insert Rooms
+-- Insert Rooms    ORDER: Run this Second
 INSERT INTO hotel_room (room_number, category_id, description, price_per_night, is_available, bed_type, floor, image_url, created_at, updated_at)
 VALUES
 ('101', 21, 'A small room ideal for solo travelers, with a comfortable single bed.', 75.00, TRUE, 'Single Bed', 1, 'default-room.png',  NOW(), NOW()),
