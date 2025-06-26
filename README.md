@@ -2,10 +2,14 @@
 
 A simple **Hotel Management System** built with **Django (MVT)** architecture. This project allows both authenticated and anonymous users to view available room categories and explore the rooms under each category.
 
+![Home Page Preview](static\images\hotel1.jpg)
+![Categories Page Preview](static\images\hotel-room.jpg)
+
 ## ✨ Features
 
 ✅ **Home Page**
 Displays all available room categories (e.g. *Single*, *Double*, *Suite*) for easy browsing.
+
 
 ✅ **Rooms by Category**
 Clicking on a category takes you to a list of rooms belonging to that category, each showing:
