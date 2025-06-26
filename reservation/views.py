@@ -25,7 +25,7 @@ def room_detail(request, id, room_number):
 
     context = {'bookings': bookings, 'room': room}
     # templates\reservation\single_room.html
-    return render(request, r'reservation\single_room.html', context)
+    return render(request, 'reservation/single_room.html', context)
 
 
 def book_room(request, id):

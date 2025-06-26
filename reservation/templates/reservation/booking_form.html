@@ -29,7 +29,7 @@
         <form action="{% url "book-room" room.id %}" method='POST'>
           {% csrf_token %}
 
-          <div class="row">
+          <div class="row align-center">
             {% for field in form %}
                   
               <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">

@@ -34,7 +34,7 @@ DATABASES = {
 
 ```
 
-- To create migrations : ` python manage.py makemigration ` 
+- To create migrations : ` python manage.py makemigrations ` 
 
 - To create database table after migrations : ` python manage.py migrate `
 

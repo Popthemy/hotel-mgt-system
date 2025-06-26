@@ -92,24 +92,24 @@ WSGI_APPLICATION = 'hotel_mgt_sys.wsgi.application'
 
 # using sqlite if you don't have postgres installed uncomment this line
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# for postgres offline
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hotel_storage',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('book hall postgres PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# for postgres offline
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'hotel_storage',
+#         'USER': 'postgres',
+#         'PASSWORD': os.environ.get('book hall postgres PASSWORD'),
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
